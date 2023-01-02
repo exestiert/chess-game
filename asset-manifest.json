@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/exestiert.github.io/chessGame/static/css/main.073c9b0a.css",
-    "main.js": "/exestiert.github.io/chessGame/static/js/main.77a15327.js",
-    "static/js/787.669a778b.chunk.js": "/exestiert.github.io/chessGame/static/js/787.669a778b.chunk.js",
-    "static/media/logo.svg": "/exestiert.github.io/chessGame/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/exestiert.github.io/chessGame/index.html",
-    "main.073c9b0a.css.map": "/exestiert.github.io/chessGame/static/css/main.073c9b0a.css.map",
-    "main.77a15327.js.map": "/exestiert.github.io/chessGame/static/js/main.77a15327.js.map",
-    "787.669a778b.chunk.js.map": "/exestiert.github.io/chessGame/static/js/787.669a778b.chunk.js.map"
+    "main.css": "/chessGame/static/css/main.073c9b0a.css",
+    "main.js": "/chessGame/static/js/main.77313c58.js",
+    "static/js/787.669a778b.chunk.js": "/chessGame/static/js/787.669a778b.chunk.js",
+    "static/media/logo.svg": "/chessGame/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/chessGame/index.html",
+    "main.073c9b0a.css.map": "/chessGame/static/css/main.073c9b0a.css.map",
+    "main.77313c58.js.map": "/chessGame/static/js/main.77313c58.js.map",
+    "787.669a778b.chunk.js.map": "/chessGame/static/js/787.669a778b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.77a15327.js"
+    "static/js/main.77313c58.js"
   ]
 }
