@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Board from "./component/Board";
-import Homepage from './component/Homepage';
+import '../style/App.css';
+import Board from "./Board";
+import Homepage from './Homepage';
 
 function App() {
 

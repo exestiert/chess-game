@@ -5,18 +5,18 @@ import Menu from "./Menu";
 
 export default function Board() {
   const [game, setGame] = useState(new Chess());
-  const turn = game.turn()
+  const turn = game.turn();
   const checkmate = game.isCheckmate();
-  let captured = null
+  let captured = null;
 
-  if(game._history.length > 0) {
-    captured = game._history[game._history.length-1].move.captured
+  if (game._history.length > 0) {
+    captured = game._history[game._history.length - 1].move.captured;
   }
   const makeMove = (move) => {
     const gameCopy = new Chess();
     gameCopy.loadPgn(game.pgn());
     gameCopy.move(move);
-    
+
     setGame(gameCopy);
   };
   const undo = () => {
@@ -38,13 +38,26 @@ export default function Board() {
       to: endSquare,
     });
   };
- console.log(game)
+  console.log(game);
   return (
     <>
-      <div className="bord">
-        <Chessboard position={game.fen()} onPieceDrop={onDrop}/>
+      <div className="bordBorder">
+        <div className="bord">
+          <Chessboard
+            position={game.fen()}
+            onPieceDrop={onDrop}
+            customDarkSquareStyle={{ backgroundColor: "#e8797bd4"}}
+            customLightSquareStyle={{ backgroundColor: "#5dabcd94" }}
+          />
+        </div>
       </div>
-    <Menu reset={reset} undo={undo} checkmate={checkmate} turn={turn} captured={captured}/>
+      <Menu
+        reset={reset}
+        undo={undo}
+        checkmate={checkmate}
+        turn={turn}
+        captured={captured}
+      />
     </>
   );
 }

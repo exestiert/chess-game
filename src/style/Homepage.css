@@ -32,6 +32,8 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 100px;
+  color: #3497c9;
+
 }
 .profileImg {
   border: solid 1px black;

@@ -1,20 +1,109 @@
-.profiles{
-    height: 80%;
-    width: 100%;
-    padding-bottom: 90px;
-    display: flex;
-    justify-content: center;
-    gap: 150px;
+.menü {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 750px;
+  height: 750px;
+  background-color: white;
+  border: black solid 1px;
+  box-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4, 4px 3px 3px #5dabcd, 4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd, 2px 2px 2px rgba(125, 170, 208, 0);
+  justify-content: center;
 }
-.profileImg{
-    border: black solid 1px;
-    width: 150px;
-    height: 150px;
+.profiles {
+  height: 22%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
 }
-.menü{
-margin-left: 50px;
-display: flex;
-flex-wrap: wrap;
-height: 90vh;
-justify-content: center;
+.profileName {
+  color: #3497c9;
+  padding-left: 5px;
+}
+.profileImg {
+  border: black solid 1px;
+  box-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4, 4px 3px 3px #5dabcd, 4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd, 2px 2px 2px rgba(125, 170, 208, 0);
+  width: 150px;
+  height: 150px;
+}
+.status {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "turn turn turn"
+                    "capture capture capture"
+                    "capture capture capture"    ;
+  background-color: #edde9c;
+  border: black solid 1px;
+  box-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4, 4px 3px 3px #5dabcd, 4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd, 2px 2px 2px rgba(125, 170, 208, 0);
+  width: 90%;
+  height: 40%;
+}
+button {
+  display: flex;
+  width: 300px;
+  height: 100px;
+  margin: 0px 25px 0px 25px;
+  text-align: center;
+  align-items: center;
+  background-color: #edde9c;
+  border: 1px solid black;
+  box-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4, 4px 3px 3px #5dabcd, 4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd, 2px 2px 2px rgba(125, 170, 208, 0);
+}
+.status > h2{
+    grid-area: turn;
+    text-align: center;
+    color: #e8797a;
+
+}
+.info {
+  grid-area: capture; 
+  text-align: center; 
+  font-size: 4rem;
+  color: #e8797a;
+  text-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4, 4px 3px 3px #5dabcd, 4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd, 2px 2px 2px rgba(125, 170, 208, 0);
+}
+button > p {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  font-size: 5rem;
+  color: #e8797a;
+  text-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4, 4px 3px 3px #5dabcd, 4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd, 2px 2px 2px rgba(125, 170, 208, 0);
+}
+button > p:hover {
+  cursor: pointer;
+  color: #e8797a;
+  text-shadow: none;
+  padding-top: 8px;
+  padding-left: 8px;
 }

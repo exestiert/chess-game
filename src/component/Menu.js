@@ -1,45 +1,93 @@
 import React, { useEffect, useState } from "react";
 import styles from "../style/Menü.module.css";
-import standardWhite from "../imgChessGame/standard_white.png";
-import standardBlack from "../imgChessGame/standard_black.png";
-import gameWinWhite from "../imgChessGame/gameWin_white.png";
-import gameLoseBlack from "../imgChessGame/gameLose_black.png";
-import gameWinBlack from "../imgChessGame/gameWin_black.png";
-import gameLoseWhite from "../imgChessGame/gameLose_white.png";
-import winFigureWhite from "../imgChessGame/winFigure_white.png";
-import loseFigureBlack from "../imgChessGame/loseFigure_black.png";
-import winFigureBlack from "../imgChessGame/winFigure_black.png";
-import loseFigureWhite from "../imgChessGame/loseFigure_white.png";
-
+import standardWhite from "../img/standard_white.png";
+import standardBlack from "../img/standard_black.png";
+import gameWinWhite from "../img/gameWin_white.png";
+import gameLoseBlack from "../img/gameLose_black.png";
+import gameWinBlack from "../img/gameWin_black.png";
+import gameLoseWhite from "../img/gameLose_white.png";
+import winFigureWhite from "../img/winFigure_white.png";
+import loseFigureBlack from "../img/loseFigure_black.png";
+import winFigureBlack from "../img/winFigure_black.png";
+import loseFigureWhite from "../img/loseFigure_white.png";
 
 export default function Menu({ reset, undo, turn, checkmate, captured }) {
-  const [profileImg, setProfileImg] = useState({
-    imgWhite: standardWhite,
-    imgBlack: standardBlack,
+  const [playStatus, setPlayStatus] = useState({
+    img: {
+      imgWhite: standardWhite,
+      imgBlack: standardBlack,
+    },
+    info: { turn: "", captured: "" },
   });
+  console.log(playStatus)
   useEffect(() => {
     if (turn === "b" && checkmate) {
-      setProfileImg({ imgWhite: gameWinWhite, imgBlack: gameLoseBlack });
+      setPlayStatus({
+        img: { imgWhite: gameWinWhite, imgBlack: gameLoseBlack },
+        info: {
+          turn: "",
+          captured: "Player White Wins!",
+        },
+      });
     } else if (turn === "w" && checkmate) {
-      setProfileImg({ imgWhite: gameLoseWhite, imgBlack: gameWinBlack });
+      setPlayStatus({
+        img: { imgWhite: gameLoseWhite, imgBlack: gameWinBlack },
+        info: {
+          turn: "",
+          captured: "Player Black Wins!",
+        },
+      });
     } else if (turn === "b" && typeof captured === "string") {
-      setProfileImg({ imgWhite: winFigureWhite, imgBlack: loseFigureBlack });
+      setPlayStatus({
+        img: { imgWhite: winFigureWhite, imgBlack: loseFigureBlack },
+        info: {
+          turn: "Player Black make a Move",
+          captured: "You have been slain!",
+        },
+      });
       const interval = setInterval(() => {
-      setProfileImg({ imgWhite: standardWhite, imgBlack: standardBlack });
-
-      }, 1000);
+        setPlayStatus({
+          img: { imgWhite: standardWhite, imgBlack: standardBlack },  info: {
+            turn: "Player Black make a Move",
+            captured: "",
+          },
+        });
+      }, 1500);
       return () => clearInterval(interval);
     } else if (turn === "w" && typeof captured === "string") {
-      setProfileImg({ imgWhite: loseFigureWhite, imgBlack: winFigureBlack });
+      setPlayStatus({
+        img: { imgWhite: loseFigureWhite, imgBlack: winFigureBlack },
+        info: {
+          turn: "Player White make a Move",
+          captured: "You have been slain!!!",
+        },
+      });
       const interval = setInterval(() => {
-      setProfileImg({ imgWhite: standardWhite, imgBlack: standardBlack });
-
-      }, 1000);
+        setPlayStatus({ img: {imgWhite: standardWhite, imgBlack: standardBlack}, info: {
+          turn: "Player White make a Move",
+          captured: "",
+        }, });
+      }, 1500);
       return () => clearInterval(interval);
-    } else {
-      setProfileImg({ imgWhite: standardWhite, imgBlack: standardBlack });
+    } else if (turn === "b") {
+      setPlayStatus({
+        img: { imgWhite: standardWhite, imgBlack: standardBlack },
+        info: {
+          turn: "Player Black make a Move",
+          captured: "",
+        },
+      });
     }
-  }, [turn, checkmate, captured]);
+    else if (turn === "w") {
+      setPlayStatus({
+        img: { imgWhite: standardWhite, imgBlack: standardBlack },
+        info: {
+          turn: "Player White make a Move",
+          captured: "",
+        },
+      });
+    }
+  }, [turn, checkmate, captured,]);
   return (
     <>
       <section className={styles.menü}>
@@ -47,22 +95,30 @@ export default function Menu({ reset, undo, turn, checkmate, captured }) {
           <div className={styles.cardImg}>
             <img
               className={styles.profileImg}
-              src={profileImg.imgWhite}
+              src={playStatus.img.imgWhite}
               alt="ProfileImg"
             />
-            <h2>Player White</h2>
+            <h2 className={styles.profileName}>Player White</h2>
           </div>
           <div className={styles.cardImg}>
             <img
               className={styles.profileImg}
-              src={profileImg.imgBlack}
+              src={playStatus.img.imgBlack}
               alt="ProfileImg"
             />
-            <h2>Player Black</h2>
+            <h2 className={styles.profileName}>Player Black</h2>
           </div>
         </section>
-        <button onClick={reset}>reset</button>
-        <button onClick={undo}>undo</button>
+        <article className={styles.status}>
+          <h2>{playStatus.info.turn}</h2>
+          <p className={styles.info}>{playStatus.info.captured}</p>
+        </article>
+        <button onClick={undo}>
+          <p>undo</p>
+        </button>
+        <button onClick={reset}>
+          <p>reset</p>
+        </button>
       </section>
     </>
   );
