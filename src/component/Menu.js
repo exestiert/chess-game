@@ -52,7 +52,7 @@ export default function Menu({ reset, undo, turn, checkmate, captured }) {
             captured: "",
           },
         });
-      }, 1500);
+      }, 2000);
       return () => clearInterval(interval);
     } else if (turn === "w" && typeof captured === "string") {
       setPlayStatus({
@@ -67,7 +67,7 @@ export default function Menu({ reset, undo, turn, checkmate, captured }) {
           turn: "Player White make a Move",
           captured: "",
         }, });
-      }, 1500);
+      }, 2000);
       return () => clearInterval(interval);
     } else if (turn === "b") {
       setPlayStatus({
