@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import useSound from "use-sound";
+import youHaveSlainAnEnemy from "../sound/YOU HAVE SLAIN AN Enemy.mp3"
+import victory from "../sound/VICTORY.mp3"
 import styles from "../style/Menü.module.css";
 import standardWhite from "../img/standard_white.png";
 import standardBlack from "../img/standard_black.png";
@@ -17,64 +20,62 @@ export default function Menu({ reset, undo, turn, checkmate, captured }) {
       imgWhite: standardWhite,
       imgBlack: standardBlack,
     },
-    info: { turn: "", captured: "" },
+    info: { captured: "" },
   });
-  console.log(playStatus)
+  const [slainAnEnemy] = useSound(youHaveSlainAnEnemy);
+  const [win] = useSound(victory)
   useEffect(() => {
     if (turn === "b" && checkmate) {
+      win()
       setPlayStatus({
         img: { imgWhite: gameWinWhite, imgBlack: gameLoseBlack },
         info: {
-          turn: "",
           captured: "Player White Wins!",
         },
       });
     } else if (turn === "w" && checkmate) {
+      win()
       setPlayStatus({
         img: { imgWhite: gameLoseWhite, imgBlack: gameWinBlack },
         info: {
-          turn: "",
           captured: "Player Black Wins!",
         },
       });
     } else if (turn === "b" && typeof captured === "string") {
+      slainAnEnemy()
       setPlayStatus({
         img: { imgWhite: winFigureWhite, imgBlack: loseFigureBlack },
         info: {
-          turn: "Player Black make a Move",
-          captured: "You have been slain!",
+          captured: "You have slain an Enemy!",
         },
       });
       const interval = setInterval(() => {
         setPlayStatus({
           img: { imgWhite: standardWhite, imgBlack: standardBlack },  info: {
-            turn: "Player Black make a Move",
-            captured: "",
+            captured: "Player Black make a Move",
           },
         });
-      }, 2000);
+      }, 3000);
       return () => clearInterval(interval);
     } else if (turn === "w" && typeof captured === "string") {
+      slainAnEnemy()
       setPlayStatus({
         img: { imgWhite: loseFigureWhite, imgBlack: winFigureBlack },
         info: {
-          turn: "Player White make a Move",
-          captured: "You have been slain!!!",
+          captured: "You have slain an Enemy!",
         },
       });
       const interval = setInterval(() => {
         setPlayStatus({ img: {imgWhite: standardWhite, imgBlack: standardBlack}, info: {
-          turn: "Player White make a Move",
-          captured: "",
+          captured: "Player White make a Move",
         }, });
-      }, 2000);
+      }, 3000);
       return () => clearInterval(interval);
     } else if (turn === "b") {
       setPlayStatus({
         img: { imgWhite: standardWhite, imgBlack: standardBlack },
         info: {
-          turn: "Player Black make a Move",
-          captured: "",
+          captured: "Player Black make a Move",
         },
       });
     }
@@ -82,8 +83,7 @@ export default function Menu({ reset, undo, turn, checkmate, captured }) {
       setPlayStatus({
         img: { imgWhite: standardWhite, imgBlack: standardBlack },
         info: {
-          turn: "Player White make a Move",
-          captured: "",
+          captured: "Player White make a Move",
         },
       });
     }
@@ -110,7 +110,6 @@ export default function Menu({ reset, undo, turn, checkmate, captured }) {
           </div>
         </section>
         <article className={styles.status}>
-          <h2>{playStatus.info.turn}</h2>
           <p className={styles.info}>{playStatus.info.captured}</p>
         </article>
         <button onClick={undo}>

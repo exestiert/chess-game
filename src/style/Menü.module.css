@@ -37,11 +37,9 @@
   height: 150px;
 }
 .status {
-  display: grid;
+  display: flex ;
   justify-content: center;
-  grid-template-areas: "turn turn turn"
-                    "capture capture capture"
-                    "capture capture capture"    ;
+  align-items: center;
   background-color: #edde9c;
   border: black solid 1px;
   box-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4,
@@ -68,12 +66,6 @@ button {
     5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd,
     6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4,
     8px 7px 0px #5dabcd, 2px 2px 2px rgba(125, 170, 208, 0);
-}
-.status > h2{
-    grid-area: turn;
-    text-align: center;
-    color: #e8797a;
-
 }
 .info {
   grid-area: capture; 
